@@ -11,9 +11,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import static javax.management.Query.value;
 
 /**
  *
@@ -47,12 +47,16 @@ public class FXMLDocumentController implements Initializable {
      @FXML
     private Label price;
     // ==========================  fin initialisation des label ==========================  
-
+     @FXML
+     private TextField text;
+     
     @FXML
     private ImageView picture;
     
     @FXML
     private void search(ActionEvent event) {
+        String temp = text.getText();
+        
     }
     @FXML
     private void back(ActionEvent event) {
@@ -101,4 +105,6 @@ public class FXMLDocumentController implements Initializable {
     }
     
     // ==========================   fin de setteur de label ========================== 
+
+    
 }
