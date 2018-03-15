@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -54,6 +55,12 @@ public class FXMLDocumentController implements Initializable {
     private ImageView picture;
     
     @FXML
+    private ListView couleur;
+    
+    @FXML
+    private ListView equipement;
+    
+    @FXML
     private void search(ActionEvent event) {
         String temp = text.getText();
         
@@ -64,9 +71,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void next(ActionEvent event) {
     }
+    
     @Override
-    
-    
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
@@ -103,8 +109,20 @@ public class FXMLDocumentController implements Initializable {
     public void setimage(Image values){
         picture.setImage(values);
     }
-    
+    public void setcouleur(String couleurs){
+        couleur.getItems().add(couleurs);
+    }
+    public void setequipement(String[] equipements){
+        equipement.getItems().add(equipements);
+        // source : https://stackoverflow.com/questions/32700005/javafx-listview-add-and-edit-element
+        // source a supprimer avant fin du projet je la laissa la au cas shit happen durant l'execution
+    }
+    public void clearliste(){
+        couleur.getItems().clear();
+        equipement.getItems().clear();
+    }
+            
     // ==========================   fin de setteur de label ========================== 
-
+    // ==========================   les tableaux =====================================
     
 }
