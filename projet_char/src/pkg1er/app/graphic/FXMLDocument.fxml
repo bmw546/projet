@@ -15,7 +15,7 @@
       <Button layoutX="175.0" layoutY="414.0" mnemonicParsing="false" onAction="#back" text="&lt;--" />
       <Button layoutX="341.0" layoutY="414.0" mnemonicParsing="false" onAction="#next" text="--&gt;" />
       <Separator layoutX="7.0" layoutY="402.0" prefHeight="0.0" prefWidth="577.0" />
-      <TextField id="text" layoutX="184.0" layoutY="14.0" onAction="#search" />
+      <TextField id="text" fx:id="text" layoutX="184.0" layoutY="14.0" onAction="#search" />
       <Label layoutX="225.0" layoutY="418.0" text="changer de véhicule" />
       <Label id="marque" fx:id="marque" layoutX="50.0" layoutY="56.0" prefHeight="17.0" prefWidth="87.0" text="(MARQUE)">
          <font>
