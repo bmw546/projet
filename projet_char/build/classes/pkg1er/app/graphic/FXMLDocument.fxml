@@ -71,8 +71,8 @@
          </font>
       </Label>
       <Label id="vitesse" fx:id="price" layoutX="144.0" layoutY="730.0" text="(prix)" />
-      <ListView id="couleur" layoutX="341.0" layoutY="464.0" prefHeight="91.0" prefWidth="200.0" />
-      <ListView id="equipement" layoutX="341.0" layoutY="608.0" prefHeight="91.0" prefWidth="200.0" />
+      <ListView id="couleur"  fx:id="couleur" layoutX="341.0" layoutY="464.0" prefHeight="91.0" prefWidth="200.0" />
+      <ListView id="equipement" fx:id="equipement" layoutX="341.0" layoutY="608.0" prefHeight="91.0" prefWidth="200.0" />
       <Label layoutX="408.0" layoutY="444.0" text="Couleur">
          <font>
             <Font name="System Bold Italic" size="12.0" />
