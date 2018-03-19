@@ -5,23 +5,23 @@
  */
 package pkg1er.app.graphic;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+<<<<<<< HEAD
 import javafx.stage.Stage;
 import java.sql.ResultSet;
+=======
+>>>>>>> dc87d2bf5139e81b99b5aaf84fba4cb01bafc9e6
 
 /**
  *
@@ -65,8 +65,12 @@ public class FXMLDocumentController implements Initializable {
     private ListView couleur;
     
     @FXML
-    private ListView equipement;
+    private ListView<String> equipement;
     
+    public static final ObservableList names = 
+        FXCollections.observableArrayList();
+    
+<<<<<<< HEAD
     private Searcher searcher;
     
 
@@ -76,8 +80,13 @@ public class FXMLDocumentController implements Initializable {
         
         ResultSet result = searcher.search(text.getText());
         
+=======
+    @FXML
+    private void search(ActionEvent event) {
+        String temp = text.getText();
+>>>>>>> dc87d2bf5139e81b99b5aaf84fba4cb01bafc9e6
         System.out.println(text.getText());
-        this.setcouleur(text.getText());
+        
     }
     @FXML
     private void back(ActionEvent event) {
@@ -126,7 +135,7 @@ public class FXMLDocumentController implements Initializable {
     public void setcouleur(String couleurs){
         couleur.getItems().add(couleurs);
     }
-    public void setequipement(String[] equipements){
+    public void setequipement(String equipements){
         equipement.getItems().add(equipements);
         // source : https://stackoverflow.com/questions/32700005/javafx-listview-add-and-edit-element
         // source a supprimer avant fin du projet je la laissa la au cas shit happen durant l'execution
@@ -135,7 +144,7 @@ public class FXMLDocumentController implements Initializable {
         couleur.getItems().clear();
         equipement.getItems().clear();
     }
-            
+   
     // ==========================   fin de setteur de label ========================== 
     // ==========================   les tableaux =====================================
     
