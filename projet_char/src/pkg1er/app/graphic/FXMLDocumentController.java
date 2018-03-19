@@ -21,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import java.sql.ResultSet;
 
 /**
  *
@@ -66,10 +67,14 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ListView equipement;
     
+    private Searcher searcher;
+    
 
     @FXML
     private void search(ActionEvent event) {
         //String temp = text.getText();
+        
+        ResultSet result = searcher.search(text.getText());
         
         System.out.println(text.getText());
         this.setcouleur(text.getText());
@@ -83,7 +88,7 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        searcher = new Searcher();
     }    
     
     

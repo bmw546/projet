@@ -42,10 +42,10 @@ public class DataSource {
          
        }
        catch (SQLException ex) {
-            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         } 
        catch (ClassNotFoundException ex) {
-            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         }
        
        return result;
@@ -78,10 +78,10 @@ public class DataSource {
          
        }
        catch (SQLException ex) {
-            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         } 
        catch (ClassNotFoundException ex) {
-            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         }
        
        return result;
