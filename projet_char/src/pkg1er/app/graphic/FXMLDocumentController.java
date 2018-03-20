@@ -17,11 +17,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-<<<<<<< HEAD
 import javafx.stage.Stage;
 import java.sql.ResultSet;
-=======
->>>>>>> dc87d2bf5139e81b99b5aaf84fba4cb01bafc9e6
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -70,7 +70,6 @@ public class FXMLDocumentController implements Initializable {
     public static final ObservableList names = 
         FXCollections.observableArrayList();
     
-<<<<<<< HEAD
     private Searcher searcher;
     
 
@@ -80,14 +79,15 @@ public class FXMLDocumentController implements Initializable {
         
         ResultSet result = searcher.search(text.getText());
         
-=======
-    @FXML
-    private void search(ActionEvent event) {
-        String temp = text.getText();
->>>>>>> dc87d2bf5139e81b99b5aaf84fba4cb01bafc9e6
         System.out.println(text.getText());
-        
+        try{
+            //setmarque(result.getString("make"));
+        }
+        catch (Exception ex) {
+            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
+    
     @FXML
     private void back(ActionEvent event) {
     }

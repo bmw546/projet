@@ -27,21 +27,27 @@ public class Searcher {
         
         DataSource ds = new DataSource();
         
-        ResultSet firstCar = null;
+        ResultSet firstCar;
         
         searchResult = ds.search(searched);
         
+        
+        
         try{
-            searchResult.next();
+            while(searchResult.next())
+                System.out.println(searchResult.getInt(1));
+            //searchResult.next();
+            //System.out.println(searchResult.getInt(1));
             firstCar = pullCar(searchResult.getInt("SerialNB"));
+            return firstCar;
         }
         catch (Exception ex) {
-            //Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         } 
         
         
         
-        return firstCar;
+        return null;
         
     }
     
@@ -50,6 +56,8 @@ public class Searcher {
         DataSource ds = new DataSource();
         
         ResultSet carData = ds.pullCar(serialNB);
+        
+        
         
         return carData;
     }

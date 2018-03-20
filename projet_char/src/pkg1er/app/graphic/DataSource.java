@@ -23,22 +23,27 @@ public class DataSource {
        
         Connection conn;
         
-        ResultSet result = null;
+        
        
        try{
            
            Class.forName("com.mysql.jdbc.Driver"); 
            
-            conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/examen","root","");
+            conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/carcatalog","root","");
             
-            String query = "SELECT `SerialNB` FROM `car` WHERE `CarDescription` LIKE \"%?%\" "; 
+            String query = "SELECT `SerialNB` FROM `car` WHERE `CarDescription` LIKE '%?%' "; 
             PreparedStatement stat=conn.prepareStatement(query); 
             
             stat.setString(1,string);
             
-            result = stat.executeQuery();
+            ResultSet result = stat.executeQuery();
+            
+            while(result.next())
+                System.out.println(result.getInt("SerialNB"));
             
             conn.close();
+            
+            return result;
          
        }
        catch (SQLException ex) {
@@ -48,7 +53,7 @@ public class DataSource {
             //Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         }
        
-       return result;
+       return null;
     }
     
     public ResultSet pullCar(int nb){
@@ -61,7 +66,7 @@ public class DataSource {
            
            Class.forName("com.mysql.jdbc.Driver"); 
            
-            conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/examen","root","");
+            conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/carcatalog","root","");
             
             String query = "SELECT * FROM `car` JOIN `model` ON `car`.`Model`= `model`.`ModelID` JOIN `color_car` ON `car`.`SerialNB`=`color_car`.`CarID` "
                     + "JOIN `color` ON `color`.`ColorID`=`color_car`.`ColorID` JOIN `options_car` ON `car`.`SerialNB`=`options_car`.`CarID` "
@@ -74,14 +79,17 @@ public class DataSource {
             
             result = stat.executeQuery();
             
+            while(result.next())
+                System.out.println(result.getInt("SerialNB"));
+            
             conn.close();
          
        }
        catch (SQLException ex) {
-            //Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         } 
        catch (ClassNotFoundException ex) {
-            //Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         }
        
        return result;
