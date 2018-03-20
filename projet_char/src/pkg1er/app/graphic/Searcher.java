@@ -34,10 +34,7 @@ public class Searcher {
         
         
         try{
-            while(searchResult.next())
-                System.out.println(searchResult.getInt(1));
-            //searchResult.next();
-            //System.out.println(searchResult.getInt(1));
+            searchResult.first();
             firstCar = pullCar(searchResult.getInt("SerialNB"));
             return firstCar;
         }

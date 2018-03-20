@@ -44,9 +44,6 @@ public class AppGraphic extends Application {
     public static void main(String[] args) {
         launch(args);
         
-        DataSource test = new DataSource();
-        
-        test.pullCar(1);
     }
     
 }

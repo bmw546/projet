@@ -31,26 +31,21 @@ public class DataSource {
            
             conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/carcatalog","root","");
             
-            String query = "SELECT `SerialNB` FROM `car` WHERE `CarDescription` LIKE '%?%' "; 
+            String query = "SELECT `SerialNB` FROM `car` WHERE `CarDescription` LIKE ? "; 
             PreparedStatement stat=conn.prepareStatement(query); 
             
-            stat.setString(1,string);
+            stat.setString(1,"%"+string+"%");
             
             ResultSet result = stat.executeQuery();
-            
-            while(result.next())
-                System.out.println(result.getInt("SerialNB"));
-            
-            conn.close();
-            
+ 
             return result;
          
        }
        catch (SQLException ex) {
-            //Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         } 
        catch (ClassNotFoundException ex) {
-            //Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         }
        
        return null;
@@ -78,12 +73,6 @@ public class DataSource {
             stat.setInt(1,nb);
             
             result = stat.executeQuery();
-            
-            while(result.next())
-                System.out.println(result.getInt("SerialNB"));
-            
-            conn.close();
-         
        }
        catch (SQLException ex) {
             Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
