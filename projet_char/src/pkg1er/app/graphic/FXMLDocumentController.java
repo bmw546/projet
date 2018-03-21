@@ -81,7 +81,17 @@ public class FXMLDocumentController implements Initializable {
         
         System.out.println(text.getText());
         try{
-            //setmarque(result.getString("make"));
+            result.next();
+            setmarque(result.getString("MakeName"));
+            setconstructeur(result.getString("MakeName"));
+            setmodele(result.getString("ModelName"));
+            //setpays(result.getString("CountryName"));
+            System.out.println(result.getString("CountryName"));
+            settype(result.getString("TypeName"));
+            //setimage(result.getBlob("CarPicture"));
+            setmoteur(result.getString("EngineName"));
+            setprix(result.getString("CarPrice"));
+            
         }
         catch (Exception ex) {
             Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
