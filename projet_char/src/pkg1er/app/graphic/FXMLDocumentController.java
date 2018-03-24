@@ -77,20 +77,18 @@ public class FXMLDocumentController implements Initializable {
     private void search(ActionEvent event) {
         //String temp = text.getText();
         
-        ResultSet result = searcher.search(text.getText());
+        Car result = searcher.search(text.getText());
         
         System.out.println(text.getText());
         try{
-            result.next();
-            setmarque(result.getString("MakeName"));
-            setconstructeur(result.getString("MakeName"));
-            setmodele(result.getString("ModelName"));
-            //setpays(result.getString("CountryName"));
-            System.out.println(result.getString("CountryName"));
-            settype(result.getString("TypeName"));
+            setmarque(result.getMakeName());
+            setconstructeur(result.getMakeName());
+            setmodele(result.getModelName());
+            //setpays(result.getCountryName());
+            //settype(result.getTypeName());
             //setimage(result.getBlob("CarPicture"));
-            setmoteur(result.getString("EngineName"));
-            setprix(result.getString("CarPrice"));
+            //setmoteur(result.getEngineName());
+            setprix(result.getPrice());
             
         }
         catch (Exception ex) {

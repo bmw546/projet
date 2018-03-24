@@ -23,11 +23,11 @@ public class Searcher {
     
     private ResultSet searchResult;
     
-    public ResultSet search(String searched){
+    public Car search(String searched){
         
         DataSource ds = new DataSource();
         
-        ResultSet firstCar;
+        Car firstCar;
         
         searchResult = ds.search(searched);
         
@@ -48,15 +48,64 @@ public class Searcher {
         
     }
     
-    public ResultSet pullCar(int serialNB){
+    public Car pullCar(int serialNB){
     
         DataSource ds = new DataSource();
         
         ResultSet carData = ds.pullCar(serialNB);
         
+        boolean isPart;
         
+        try{
+            carData.first();
+            Car pulledCar = new Car(carData.getInt("SerialNB"),carData.getString("ModelName"),carData.getString("MakeName"), carData.getString("CountryName"), carData.getString("TypeName"),carData.getString("EngineName"), carData.getString("EngineType"), carData.getString("ModelSpeed"), carData.getString("CarPrice"));
+            do{
+                isPart = false;
+                
+                
+                for(int i = 0; i< pulledCar.getColor().size();i++){
+                    
+                    if (pulledCar.getColor().get(i)==carData.getString("ColorName")){
+                        
+                        isPart = true;
+                        break;
+                    }
+                }
+                if (isPart == false){
+                    //On ajoute le pixel 
+                    pulledCar.addColor(carData.getString("ColorName"));
+
+                }
+            }while(carData.next());
+            
+            carData.first();
+            
+            do{
+                isPart = false;
+                
+                
+                for(int i = 0; i< pulledCar.getOptions().size();i++){
+                    
+                    if (pulledCar.getOptions().get(i)==carData.getString("OptionName")){
+                        
+                        isPart = true;
+                        break;
+                    }
+                }
+                if (isPart == false){
+                    //On ajoute le pixel 
+                    pulledCar.addOption(carData.getString("OptionName"));
+
+                }
+            }while(carData.next());
+            
+            return pulledCar;
+        }
+        catch (Exception ex) {
+            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+        } 
         
-        return carData;
+        return null;
     }
     
 }
