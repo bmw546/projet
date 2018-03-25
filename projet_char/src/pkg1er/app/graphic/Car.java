@@ -22,8 +22,8 @@ public class Car {
     private String engineType;
     private String speed;
     private String price;
-    private ArrayList color;
-    private ArrayList options;
+    private ArrayList<String> color;
+    private ArrayList<String> options;
 
     public Car(int serialnb, String modelName, String makeName, String countryName, String typeName,String engineName, String engineType, String speed, String price) {
         this.serialnb = serialnb;

@@ -64,18 +64,19 @@ public class Searcher {
                 
                 
                 for(int i = 0; i< pulledCar.getColor().size();i++){
-                    
-                    if (pulledCar.getColor().get(i)==carData.getString("ColorName")){
+                   
+                    if(pulledCar.getColor().get(i).equals(carData.getString("ColorName"))){
                         
                         isPart = true;
                         break;
                     }
                 }
+                
                 if (isPart == false){
-                    //On ajoute le pixel 
                     pulledCar.addColor(carData.getString("ColorName"));
 
                 }
+                 
             }while(carData.next());
             
             carData.first();
@@ -86,14 +87,13 @@ public class Searcher {
                 
                 for(int i = 0; i< pulledCar.getOptions().size();i++){
                     
-                    if (pulledCar.getOptions().get(i)==carData.getString("OptionName")){
+                    if (pulledCar.getOptions().get(i).equals(carData.getString("OptionName"))){
                         
                         isPart = true;
                         break;
                     }
                 }
-                if (isPart == false){
-                    //On ajoute le pixel 
+                if (isPart == false){ 
                     pulledCar.addOption(carData.getString("OptionName"));
 
                 }

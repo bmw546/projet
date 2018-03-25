@@ -17,8 +17,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
-import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,6 +32,9 @@ public class FXMLDocumentController implements Initializable {
     // ==========================   Initialisation des labels  ==========================  
     @FXML
     private Label modele;
+    
+    @FXML
+    private Label modele2;
     
     @FXML
     private Label marque;
@@ -75,20 +77,30 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void search(ActionEvent event) {
-        //String temp = text.getText();
         
         Car result = searcher.search(text.getText());
-        
-        System.out.println(text.getText());
+        ArrayList<String> temp;
         try{
             setmarque(result.getMakeName());
             setconstructeur(result.getMakeName());
             setmodele(result.getModelName());
-            //setpays(result.getCountryName());
-            //settype(result.getTypeName());
+            setpays(result.getCountryName());
+            settype(result.getTypeName());
             //setimage(result.getBlob("CarPicture"));
-            //setmoteur(result.getEngineName());
+            setmoteur(result.getEngineType());
+            setvitesse(result.getSpeed());
             setprix(result.getPrice());
+            
+            temp=result.getColor();
+            
+            for(String color:temp)
+                setcouleur(color);
+           
+            
+            temp=result.getOptions();
+            
+            for(String options:temp)
+                setequipement(options);
             
         }
         catch (Exception ex) {
@@ -112,6 +124,7 @@ public class FXMLDocumentController implements Initializable {
     // ==========================   setteur de label  ==========================  
     public void setmodele(String model) {
         modele.setText(model);
+        modele2.setText(model);
     }
     
     public void setmarque(String marqu) {
