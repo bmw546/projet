@@ -22,12 +22,12 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <Label id="modele" fx:id="modele" layoutX="138.0" layoutY="56.0" prefHeight="17.0" prefWidth="99.0" text="(NOM MODÈLE)">
+      <Label id="modele" fx:id="modele2" layoutX="138.0" layoutY="56.0" prefHeight="17.0" prefWidth="99.0" text="(NOM MODÈLE)">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="constructeur" layoutX="36.0" layoutY="452.0" text="Constructeur">
+      <Label layoutX="36.0" layoutY="452.0" text="Constructeur">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
@@ -52,17 +52,17 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <Label id="constructeur" layoutX="147.0" layoutY="452.0" text="(constructeur)" />
-      <Label id="pays" layoutX="147.0" layoutY="479.0" text="(pays)" />
-      <Label id="modele" layoutX="151.0" layoutY="509.0" text="(modèle)" />
-      <Label id="type" layoutX="149.0" layoutY="539.0" text="(type)" />
-      <Label id="moteur" layoutX="151.0" layoutY="565.0" text="(type de moteur)" />
+      <Label id="constructeur" fx:id="constructeur" layoutX="147.0" layoutY="452.0" text="(constructeur)" />
+      <Label id="pays" fx:id="pays" layoutX="147.0" layoutY="479.0" text="(pays)" />
+      <Label id="modele" fx:id="modele" layoutX="151.0" layoutY="509.0" text="(modèle)" />
+      <Label id="type" fx:id="type" layoutX="149.0" layoutY="539.0" text="(type)" />
+      <Label id="moteur" fx:id="moteur" layoutX="151.0" layoutY="565.0" text="(type de moteur)" />
       <Label id="vitesse" layoutX="36.0" layoutY="591.0" text="vitesse max">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <Label id="vitesse" layoutX="151.0" layoutY="591.0" text="(vitesse)" />
+      <Label id="vitesse" fx:id="vitesse" layoutX="151.0" layoutY="591.0" text="(vitesse)" />
       <Label fx:id="image" layoutX="365.0" layoutY="36.0" prefHeight="57.0" prefWidth="202.0" />
       <ImageView fx:id="picture" fitHeight="323.0" fitWidth="543.0" layoutX="25.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" />
       <Label id="vitesse" layoutX="29.0" layoutY="730.0" text="Prix">
@@ -71,7 +71,7 @@
          </font>
       </Label>
       <Label id="vitesse" fx:id="price" layoutX="144.0" layoutY="730.0" text="(prix)" />
-      <ListView id="couleur"  fx:id="couleur" layoutX="341.0" layoutY="464.0" prefHeight="91.0" prefWidth="200.0" />
+      <ListView id="couleur" fx:id="couleur" layoutX="341.0" layoutY="464.0" prefHeight="91.0" prefWidth="200.0" />
       <ListView id="equipement" fx:id="equipement" layoutX="341.0" layoutY="608.0" prefHeight="91.0" prefWidth="200.0" />
       <Label layoutX="408.0" layoutY="444.0" text="Couleur">
          <font>
