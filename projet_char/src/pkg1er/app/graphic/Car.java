@@ -5,6 +5,8 @@
  */
 package pkg1er.app.graphic;
 
+
+import java.sql.Blob;
 import java.util.ArrayList;
 
 /**
@@ -24,8 +26,9 @@ public class Car {
     private String price;
     private ArrayList<String> color;
     private ArrayList<String> options;
+    private Blob pic;
 
-    public Car(int serialnb, String modelName, String makeName, String countryName, String typeName,String engineName, String engineType, String speed, String price) {
+    public Car(int serialnb, String modelName, String makeName, String countryName, String typeName,String engineName, String engineType, String speed, String price, Blob pic) {
         this.serialnb = serialnb;
         this.modelName = modelName;
         this.makeName = makeName;
@@ -35,9 +38,20 @@ public class Car {
         this.engineType = engineType;
         this.speed = speed;
         this.price = price;
+        this.pic = pic;
         
         color=new ArrayList();
         options=new ArrayList();
+        
+    }
+
+    public Blob getPic() {
+        return pic;
+    }
+    
+
+    public void setPic(Blob pic) {
+        this.pic = pic;
     }
 
     public void setEngineName(String engineName) {

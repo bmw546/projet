@@ -81,12 +81,13 @@ public class FXMLDocumentController implements Initializable {
         Car result = searcher.search(text.getText());
         ArrayList<String> temp;
         try{
+            Image image = new Image(result.getPic().getBinaryStream());
             setmarque(result.getMakeName());
             setconstructeur(result.getMakeName());
             setmodele(result.getModelName());
             setpays(result.getCountryName());
             settype(result.getTypeName());
-            //setimage(result.getBlob("CarPicture"));
+            setimage(image);
             setmoteur(result.getEngineType());
             setvitesse(result.getSpeed());
             setprix(result.getPrice());

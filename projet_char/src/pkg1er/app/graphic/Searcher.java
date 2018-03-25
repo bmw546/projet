@@ -58,7 +58,7 @@ public class Searcher {
         
         try{
             carData.first();
-            Car pulledCar = new Car(carData.getInt("SerialNB"),carData.getString("ModelName"),carData.getString("MakeName"), carData.getString("CountryName"), carData.getString("TypeName"),carData.getString("EngineName"), carData.getString("EngineType"), carData.getString("ModelSpeed"), carData.getString("CarPrice"));
+            Car pulledCar = new Car(carData.getInt("SerialNB"),carData.getString("ModelName"),carData.getString("MakeName"), carData.getString("CountryName"), carData.getString("TypeName"),carData.getString("EngineName"), carData.getString("EngineType"), carData.getString("ModelSpeed"), carData.getString("CarPrice"),carData.getBlob("CarPicture"));
             do{
                 isPart = false;
                 
