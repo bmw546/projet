@@ -48,6 +48,34 @@ public class Searcher {
         
     }
     
+    public Car next(){
+        try{
+            if(!searchResult.isLast()){
+                searchResult.next();
+                Car nextCar=pullCar(searchResult.getInt("SerialNB"));
+
+                return nextCar;
+            }
+        }
+        catch (Exception ex) {
+            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        return null;
+    }
+    
+    public Car back(){
+        try{
+        searchResult.previous();
+        Car previousCar=pullCar(searchResult.getInt("SerialNB"));
+        
+        return previousCar;
+        }
+        catch (Exception ex) {
+            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        return null;
+    }
+    
     public Car pullCar(int serialNB){
     
         DataSource ds = new DataSource();

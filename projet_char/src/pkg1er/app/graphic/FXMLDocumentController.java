@@ -81,6 +81,9 @@ public class FXMLDocumentController implements Initializable {
         Car result = searcher.search(text.getText());
         ArrayList<String> temp;
         try{
+            couleur.getItems().clear();
+            equipement.getItems().clear();
+            
             Image image = new Image(result.getPic().getBinaryStream());
             setmarque(result.getMakeName());
             setconstructeur(result.getMakeName());
@@ -111,9 +114,79 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void back(ActionEvent event) {
+        Car result = searcher.back();
+        if(result==null)
+           return;
+        
+        ArrayList<String> temp;
+        try{
+            couleur.getItems().clear();
+            equipement.getItems().clear();
+            
+            Image image = new Image(result.getPic().getBinaryStream());
+            setmarque(result.getMakeName());
+            setconstructeur(result.getMakeName());
+            setmodele(result.getModelName());
+            setpays(result.getCountryName());
+            settype(result.getTypeName());
+            setimage(image);
+            setmoteur(result.getEngineType());
+            setvitesse(result.getSpeed());
+            setprix(result.getPrice());
+            
+            temp=result.getColor();
+            
+            for(String color:temp)
+                setcouleur(color);
+           
+            
+            temp=result.getOptions();
+            
+            for(String options:temp)
+                setequipement(options);
+            
+        }
+        catch (Exception ex) {
+            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
     @FXML
     private void next(ActionEvent event) {
+       Car result = searcher.next();
+       if(result==null)
+           return;
+       
+        ArrayList<String> temp;
+        try{
+            couleur.getItems().clear();
+            equipement.getItems().clear();
+            
+            Image image = new Image(result.getPic().getBinaryStream());
+            setmarque(result.getMakeName());
+            setconstructeur(result.getMakeName());
+            setmodele(result.getModelName());
+            setpays(result.getCountryName());
+            settype(result.getTypeName());
+            setimage(image);
+            setmoteur(result.getEngineType());
+            setvitesse(result.getSpeed());
+            setprix(result.getPrice());
+            
+            temp=result.getColor();
+            
+            for(String color:temp)
+                setcouleur(color);
+           
+            
+            temp=result.getOptions();
+            
+            for(String options:temp)
+                setequipement(options);
+            
+        }
+        catch (Exception ex) {
+            Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
     
     @Override
@@ -155,6 +228,7 @@ public class FXMLDocumentController implements Initializable {
         picture.setImage(values);
     }
     public void setcouleur(String couleurs){
+        
         couleur.getItems().add(couleurs);
     }
     public void setequipement(String equipements){
