@@ -85,6 +85,7 @@ public class FXMLDocumentController implements Initializable {
             equipement.getItems().clear();
             
             Image image = new Image(result.getPic().getBinaryStream());
+            this.clearliste();
             setmarque(result.getMakeName());
             setconstructeur(result.getMakeName());
             setmodele(result.getModelName());
