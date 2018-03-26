@@ -65,11 +65,14 @@ public class Searcher {
     
     public Car back(){
         try{
-        searchResult.previous();
-        Car previousCar=pullCar(searchResult.getInt("SerialNB"));
-        
-        return previousCar;
-        }
+            if(!searchResult.isFirst()){
+                searchResult.previous();
+                Car previousCar=pullCar(searchResult.getInt("SerialNB"));
+                return previousCar;
+
+            }
+            
+                }
         catch (Exception ex) {
             Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         } 
