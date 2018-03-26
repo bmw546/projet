@@ -15,10 +15,16 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Benoit
+ * @author Benoit Audette-Chavigny
  */
+
 public class DataSource {
     
+    /**
+     *Recherche des voitures dans la BD
+     * @param string parametre de recherche
+     * @return liste des voitures trouvées
+     */
     public ResultSet search(String string){
        
         Connection conn;
@@ -27,10 +33,11 @@ public class DataSource {
        
        try{
            
-           Class.forName("com.mysql.jdbc.Driver"); 
+            Class.forName("com.mysql.jdbc.Driver"); 
            
             conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/carcatalog","root","");
             
+            //query de recherche
             String query = "SELECT `SerialNB` FROM `car` WHERE `CarDescription` LIKE ? "; 
             PreparedStatement stat=conn.prepareStatement(query); 
             
@@ -51,6 +58,11 @@ public class DataSource {
        return null;
     }
     
+    /**
+     * tire toutes les informations relatives à une voiture
+     * @param nb numéro de série de la voiture
+     * @return les informations relatives à la voiture
+     */
     public ResultSet pullCar(int nb){
        
         Connection conn;
@@ -63,6 +75,7 @@ public class DataSource {
            
             conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/carcatalog","root","");
             
+            //query de recherche
             String query = "SELECT * FROM `car` JOIN `model` ON `car`.`Model`= `model`.`ModelID` JOIN `color_car` ON `car`.`SerialNB`=`color_car`.`CarID` "
                     + "JOIN `color` ON `color`.`ColorID`=`color_car`.`ColorID` JOIN `options_car` ON `car`.`SerialNB`=`options_car`.`CarID` "
                     + "JOIN `options` ON `options`.`OptionID`=`options_car`.`OptionID` JOIN `type` ON `type`.`TypeID`= `model`.`Type` "

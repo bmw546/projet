@@ -28,14 +28,6 @@ public class AppGraphic extends Application {
         stage.setTitle("Recherche une voiture");
         stage.show();
         
-        /*
-        Parent root2 = FXMLLoader.load(getClass().getResource("balblablabla.fxml"));
-        
-        Scene scene2 = new Scene(root2);
-        
-        stage.setScene(scene2);
-        stage.show();
-        */
     }
 
     /**

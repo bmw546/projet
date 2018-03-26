@@ -69,6 +69,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ListView<String> equipement;
     
+  
     public static final ObservableList names = 
         FXCollections.observableArrayList();
     
@@ -84,6 +85,7 @@ public class FXMLDocumentController implements Initializable {
             couleur.getItems().clear();
             equipement.getItems().clear();
             
+            //Rafraichissement de la fenêtre
             Image image = new Image(result.getPic().getBinaryStream());
             this.clearliste();
             setmarque(result.getMakeName());
@@ -124,6 +126,7 @@ public class FXMLDocumentController implements Initializable {
             couleur.getItems().clear();
             equipement.getItems().clear();
             
+            //Rafraichissement de la fenêtre
             Image image = new Image(result.getPic().getBinaryStream());
             setmarque(result.getMakeName());
             setconstructeur(result.getMakeName());
@@ -151,6 +154,7 @@ public class FXMLDocumentController implements Initializable {
             Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+    
     @FXML
     private void next(ActionEvent event) {
        Car result = searcher.next();
@@ -162,6 +166,7 @@ public class FXMLDocumentController implements Initializable {
             couleur.getItems().clear();
             equipement.getItems().clear();
             
+            //Rafraichissement de la fenêtre
             Image image = new Image(result.getPic().getBinaryStream());
             setmarque(result.getMakeName());
             setconstructeur(result.getMakeName());
@@ -197,46 +202,102 @@ public class FXMLDocumentController implements Initializable {
     
     
     // ==========================   setteur de label  ==========================  
+
+    /**
+     *
+     * @param model
+     */
     public void setmodele(String model) {
         modele.setText(model);
         modele2.setText(model);
     }
     
+    /**
+     *
+     * @param marqu
+     */
     public void setmarque(String marqu) {
         marque.setText(marqu);
     }
     
+    /**
+     *
+     * @param builder
+     */
     public void setconstructeur(String builder) {
         constructeur.setText(builder);
     }
     
+    /**
+     *
+     * @param pay
+     */
     public void setpays(String pay) {
         pays.setText(pay);
     }
+
+    /**
+     *
+     * @param typ
+     */
     public void settype(String typ) {
         type.setText(typ);
     }
+
+    /**
+     *
+     * @param moteu
+     */
     public void setmoteur(String moteu) {
         moteur.setText(moteu);
     }
+
+    /**
+     *
+     * @param speed
+     */
     public void setvitesse(String speed) {
         vitesse.setText(speed);
     }
+
+    /**
+     *
+     * @param prix
+     */
     public void setprix(String prix) {
         price.setText(prix);
     }
+
+    /**
+     *
+     * @param values
+     */
     public void setimage(Image values){
         picture.setImage(values);
     }
+
+    /**
+     *
+     * @param couleurs
+     */
     public void setcouleur(String couleurs){
         
         couleur.getItems().add(couleurs);
     }
+
+    /**
+     *
+     * @param equipements
+     */
     public void setequipement(String equipements){
         equipement.getItems().add(equipements);
         // source : https://stackoverflow.com/questions/32700005/javafx-listview-add-and-edit-element
         // source a supprimer avant fin du projet je la laissa la au cas shit happen durant l'execution
     }
+
+    /**
+     *
+     */
     public void clearliste(){
         couleur.getItems().clear();
         equipement.getItems().clear();

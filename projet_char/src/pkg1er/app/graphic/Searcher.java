@@ -23,6 +23,11 @@ public class Searcher {
     
     private ResultSet searchResult;
     
+    /**
+     * Recherche des voitures dans la BD
+     * @param searched parametre de recherche
+     * @return première voiture trouvée
+     */
     public Car search(String searched){
         
         DataSource ds = new DataSource();
@@ -48,6 +53,10 @@ public class Searcher {
         
     }
     
+    /**
+     *
+     * @return prochaine voiture de la liste
+     */
     public Car next(){
         try{
             if(!searchResult.isLast()){
@@ -63,6 +72,10 @@ public class Searcher {
         return null;
     }
     
+    /**
+     *
+     * @return voiture pécédante
+     */
     public Car back(){
         try{
             if(!searchResult.isFirst()){
@@ -79,6 +92,11 @@ public class Searcher {
         return null;
     }
     
+    /**
+     * tire toutes les informations relatives à une voiture
+     * @param serialNB numéro de série de la voiture
+     * @return la voiture
+     */
     public Car pullCar(int serialNB){
     
         DataSource ds = new DataSource();
@@ -89,11 +107,13 @@ public class Searcher {
         
         try{
             carData.first();
+            //Création de l'objet Car
             Car pulledCar = new Car(carData.getInt("SerialNB"),carData.getString("ModelName"),carData.getString("MakeName"), carData.getString("CountryName"), carData.getString("TypeName"),carData.getString("EngineName"), carData.getString("EngineType"), carData.getString("ModelSpeed"), carData.getString("CarPrice"),carData.getBlob("CarPicture"));
+            //boucle pour les couleurs
             do{
                 isPart = false;
                 
-                
+                //if anti-doublon
                 for(int i = 0; i< pulledCar.getColor().size();i++){
                    
                     if(pulledCar.getColor().get(i).equals(carData.getString("ColorName"))){
@@ -112,10 +132,11 @@ public class Searcher {
             
             carData.first();
             
+            //boucle pour les options
             do{
                 isPart = false;
                 
-                
+                //if anti-doublon
                 for(int i = 0; i< pulledCar.getOptions().size();i++){
                     
                     if (pulledCar.getOptions().get(i).equals(carData.getString("OptionName"))){
